@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "edgetpu-exporter.fullname" . }}
+  labels:
+    {{- include "edgetpu-exporter.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "edgetpu-exporter.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "edgetpu-exporter.selectorLabels" . | nindent 8 }}
+      annotations:
+        prometheus.io/scrape: "true"
+    {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          args:
+            - "-sysfs=/host-sys"
+            - "-port={{ .Values.service.targetPort }}"
+          ports:
+            - name: metrics
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /host-sys
+              name: sysfs
+              readOnly: true
+      volumes:
+        - name: sysfs
+          hostPath:
+            path: /sys
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      affinity:
+      {{- with .Values.affinity }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  # EdgeTPU Device Plugin
+                  - key: kkohtaka.org/edgetpu
+                    operator: Exists
+              - matchExpressions:
+                  # USB-attached Coral AI Accelerator (using NFD discovery)
+                  - key: feature.node.kubernetes.io/usb-fe_1a6e_089a.present
+                    operator: In
+                    values:
+                      - "true"
+              - matchExpressions:
+                  # PCIe-attached Coral AI Accelerator (using NFD discovery)
+                  - key: feature.node.kubernetes.io/pci-0880_1ac1.present
+                    operator: In
+                    values:
+                      - "true"
+              - matchExpressions:
+                  # Coral Dev Board (using DT labelling)
+                  - key: beta.devicetree.org/fsl-imx8mq-phanbell
+                    operator: In
+                    values:
+                      - "1"
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

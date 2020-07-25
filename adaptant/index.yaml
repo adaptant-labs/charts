@@ -1,0 +1,27 @@
+apiVersion: v1
+entries:
+  edgetpu-exporter:
+  - annotations:
+      category: Analytics
+    apiVersion: v2
+    appVersion: 0.0.1
+    created: "2020-07-25T03:32:47.884765173+02:00"
+    description: Prometheus exporter for EdgeTPU metrics
+    digest: 53b3dc0a7412c33fa98b76f09c1fa66c4bb8445e6c6bdadbe050f897fe928b85
+    icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
+    keywords:
+    - prometheus
+    - edgetpu
+    - edgetpu-exporter
+    - monitoring
+    maintainers:
+    - email: labs@adaptant.io
+      name: Adaptant Labs
+    name: edgetpu-exporter
+    sources:
+    - https://github.com/adaptant-labs/edgetpu-exporter
+    type: application
+    urls:
+    - https://adaptant-labs.github.io/charts/adaptant/edgetpu-exporter-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-07-25T03:32:47.884012217+02:00"

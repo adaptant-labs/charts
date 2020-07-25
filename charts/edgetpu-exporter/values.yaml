@@ -1,0 +1,36 @@
+# Default values for edgetpu-exporter.
+
+image:
+  registry: docker.io
+  repository: adaptant/edgetpu-exporter
+  pullPolicy: Always
+  tag: latest
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  targetPort: 8080
+  port: 8080
+  addPrometheusScrapeAnnotation: true
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
