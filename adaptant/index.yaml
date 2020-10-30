@@ -5,7 +5,7 @@ entries:
       category: Analytics
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-07-25T03:32:47.884765173+02:00"
+    created: "2020-10-30T01:01:11.57285902+01:00"
     description: Prometheus exporter for EdgeTPU metrics
     digest: 53b3dc0a7412c33fa98b76f09c1fa66c4bb8445e6c6bdadbe050f897fe928b85
     icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
@@ -24,4 +24,27 @@ entries:
     urls:
     - https://adaptant-labs.github.io/charts/adaptant/edgetpu-exporter-0.1.0.tgz
     version: 0.1.0
-generated: "2020-07-25T03:32:47.884012217+02:00"
+  k8s-auto-labeller:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2020-10-30T01:01:11.573371799+01:00"
+    description: Kubernetes controller for automated node label reconciliation
+    digest: eb92f5b578f0230bec239b0add2384dfb36388ecc5e9cbf52a6eedc387d375e9
+    icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
+    keywords:
+    - kubernetes
+    - kubernetes-controller
+    - kubernetes-monitoring
+    - kubernetes-labels
+    - kubernetes-nodes
+    maintainers:
+    - email: labs@adaptant.io
+      name: Adaptant Labs
+    name: k8s-auto-labeller
+    sources:
+    - https://github.com/adaptant-labs/k8s-auto-labeller
+    type: application
+    urls:
+    - https://adaptant-labs.github.io/charts/adaptant/k8s-auto-labeller-0.0.1.tgz
+    version: 0.0.1
+generated: "2020-10-30T01:01:11.572134588+01:00"

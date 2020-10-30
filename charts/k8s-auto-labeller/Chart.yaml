@@ -1,0 +1,18 @@
+apiVersion: v2
+name: k8s-auto-labeller
+description: Kubernetes controller for automated node label reconciliation
+type: application
+version: 0.0.1
+appVersion: 0.0.1
+keywords:
+  - kubernetes
+  - kubernetes-controller
+  - kubernetes-monitoring
+  - kubernetes-labels
+  - kubernetes-nodes
+icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
+sources:
+  - https://github.com/adaptant-labs/k8s-auto-labeller
+maintainers:
+  - name: Adaptant Labs
+    email: labs@adaptant.io
