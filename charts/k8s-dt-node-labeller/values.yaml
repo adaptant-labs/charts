@@ -1,0 +1,49 @@
+image:
+  registry: docker.io
+  repository: adaptant/k8s-dt-node-labeller
+  pullPolicy: IfNotPresent
+  tag: 0.1.0
+
+imagePullSecrets: []
+nameOverride: "dt-labeller"
+fullnameOverride: "dt-labeller"
+
+labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "dt-labeller"
+  namespace: kube-system
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext:
+  # Needed for /sys/firmware access
+  privileged: true
+
+podEnv:
+  - name: NODE_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: spec.nodeName
+
+resources: {}
+
+autoscaling:
+  enabled: false
+
+nodeSelector:
+  # Restrict to devicetree-capable nodes
+  kubernetes.io/arch: arm64
+
+tolerations: []
+
+affinity: {}
+
+# Install default RBAC roles and bindings
+rbac:
+  create: true
