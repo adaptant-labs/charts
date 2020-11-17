@@ -5,7 +5,7 @@ entries:
       category: Analytics
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-11-17T22:01:03.917006738+01:00"
+    created: "2020-11-17T22:13:53.763107667+01:00"
     description: Prometheus exporter for EdgeTPU metrics
     digest: 53b3dc0a7412c33fa98b76f09c1fa66c4bb8445e6c6bdadbe050f897fe928b85
     icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
@@ -27,7 +27,7 @@ entries:
   k8s-auto-labeller:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-11-17T22:01:03.917411673+01:00"
+    created: "2020-11-17T22:13:53.76389149+01:00"
     description: Kubernetes controller for automated node label reconciliation
     digest: eb92f5b578f0230bec239b0add2384dfb36388ecc5e9cbf52a6eedc387d375e9
     icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
@@ -50,9 +50,9 @@ entries:
   k8s-dt-node-labeller:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2020-11-17T22:01:03.917785153+01:00"
+    created: "2020-11-17T22:13:53.764481231+01:00"
     description: Devicetree node labeller for Kubernetes
-    digest: 15d0b4d6aafa818c7e7f6aa5e9058a97798d305a51dec8687cafcf8333589fd7
+    digest: 7badf418fba846ef073c44d544259866f98a44d9cf4755b3739f1edc12accdca
     icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
     keywords:
     - devicetree
@@ -73,7 +73,7 @@ entries:
   k8s-node-label-monitor:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2020-11-17T22:01:03.918230976+01:00"
+    created: "2020-11-17T22:13:53.765129439+01:00"
     description: Kubernetes node label monitor
     digest: 262bd90517d5377785b3fb4ed8eedc05b29133ef7d7b5524ae421c48b64c8c95
     icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
@@ -93,4 +93,4 @@ entries:
     urls:
     - https://adaptant-labs.github.io/charts/adaptant/k8s-node-label-monitor-0.1.0.tgz
     version: 0.1.0
-generated: "2020-11-17T22:01:03.9164172+01:00"
+generated: "2020-11-17T22:13:53.761661819+01:00"

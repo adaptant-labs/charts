@@ -6,5 +6,5 @@ metadata:
 rules:
 - apiGroups: [""]
   resources: ["nodes"]
-  verbs: ["list", "watch"]
+  verbs: ["list", "get", "patch", "update", "watch"]
 {{- end -}}
