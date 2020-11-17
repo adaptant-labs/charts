@@ -1,0 +1,18 @@
+apiVersion: v2
+name: k8s-node-label-monitor
+description: Kubernetes node label monitor
+type: application
+version: 0.1.0
+appVersion: 0.1.0
+keywords:
+  - kubernetes
+  - kubernetes-controller
+  - kubernetes-monitoring
+  - kubernetes-labels
+  - kubernetes-nodes
+icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
+sources:
+  - https://github.com/adaptant-labs/k8s-node-label-monitor
+maintainers:
+  - name: Adaptant Labs
+    email: labs@adaptant.io

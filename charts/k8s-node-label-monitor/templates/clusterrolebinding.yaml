@@ -1,0 +1,14 @@
+{{- if .Values.rbac.create -}}
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: system:{{ include "k8s-node-label-monitor.serviceAccountName" . }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "k8s-node-label-monitor.serviceAccountName" . }}
+    namespace: {{ .Values.serviceAccount.namespace }}
+roleRef:
+  kind: ClusterRole
+  name: system:{{ include "k8s-node-label-monitor.serviceAccountName" . }}
+  apiGroup: rbac.authorization.k8s.io
+{{- end -}}

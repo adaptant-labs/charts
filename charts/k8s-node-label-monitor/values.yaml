@@ -1,0 +1,65 @@
+replicaCount: 1
+
+image:
+  registry: docker.io
+  repository: adaptant/k8s-node-label-monitor
+  pullPolicy: Always
+  tag: latest
+
+imagePullSecrets: []
+nameOverride: "node-label-monitor"
+fullnameOverride: "node-label-monitor"
+
+labelMonitor:
+  logging: true
+
+  # Name of Kubernetes CronJob to trigger on label state change
+  #cronjob: descheduler
+
+  # REST API endpoint to POST notifications of label state changes to
+  #notificationUrl: https://rest.api/endpoint
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "node-label-monitor"
+  namespace: kube-system
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+podEnv:
+  - name: NODE_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: spec.nodeName
+
+securityContext: {}
+
+resources: {}
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations:
+ - key: "node-role.kubernetes.io/master"
+   operator: "Equal"
+   value: ""
+   effect: "NoSchedule"
+
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        preference:
+          matchExpressions:
+            - key: "node-role.kubernetes.io/master"
+              operator: In
+              values: [""]
+
+# Install default RBAC roles and bindings
+rbac:
+  create: true
