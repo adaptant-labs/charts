@@ -1,0 +1,49 @@
+# Default values for ncs2-exporter.
+
+image:
+  registry: docker.io
+  repository: adaptant/prometheus-ncs2-exporter
+  pullPolicy: IfNotPresent
+  tag: 0.1.0
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  targetPort: 8084
+  port: 8084
+  addPrometheusScrapeAnnotation: true
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            # k8s-auto-labeller
+            - key: accelerators/ncs2
+              operator: Exists
+        - matchExpressions:
+            # USB-attached NCS2 (using NFD discovery)
+            - key: feature.node.kubernetes.io/usb-ff_03e7_2485.present
+              operator: In
+              values:
+                - "true"

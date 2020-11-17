@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "ncs2-exporter.fullname" . }}
+  labels:
+    {{- include "ncs2-exporter.labels" . | nindent 4 }}
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      {{- include "ncs2-exporter.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "ncs2-exporter.selectorLabels" . | nindent 8 }}
+      annotations:
+        {{- if .Values.service.addPrometheusScrapeAnnotation }}
+        prometheus.io/scrape: "true"
+        {{- end }}
+    {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          ports:
+            - name: metrics
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      affinity:
+      {{- with .Values.affinity }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

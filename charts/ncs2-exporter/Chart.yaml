@@ -1,0 +1,21 @@
+apiVersion: v2
+name: ncs2-exporter
+description: Prometheus exporter for Intel NCS2 metrics
+type: application
+version: 0.1.0
+appVersion: 0.1.0
+keywords:
+  - kubernetes
+  - kubernetes-labels
+  - kubernetes-nodes
+  - kubernetes-monitoring
+  - ncs2
+  - myriad
+  - movidius
+  - movidius-vpu
+icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
+sources:
+  - https://github.com/adaptant-labs/prometheus_ncs2_exporter
+maintainers:
+  - name: Adaptant Labs
+    email: labs@adaptant.io
