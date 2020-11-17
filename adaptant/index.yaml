@@ -5,7 +5,7 @@ entries:
       category: Analytics
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-11-17T22:13:53.763107667+01:00"
+    created: "2020-11-17T22:30:13.888628943+01:00"
     description: Prometheus exporter for EdgeTPU metrics
     digest: 53b3dc0a7412c33fa98b76f09c1fa66c4bb8445e6c6bdadbe050f897fe928b85
     icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
@@ -27,7 +27,7 @@ entries:
   k8s-auto-labeller:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-11-17T22:13:53.76389149+01:00"
+    created: "2020-11-17T22:30:13.889314703+01:00"
     description: Kubernetes controller for automated node label reconciliation
     digest: eb92f5b578f0230bec239b0add2384dfb36388ecc5e9cbf52a6eedc387d375e9
     icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
@@ -50,7 +50,7 @@ entries:
   k8s-dt-node-labeller:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2020-11-17T22:13:53.764481231+01:00"
+    created: "2020-11-17T22:30:13.890021921+01:00"
     description: Devicetree node labeller for Kubernetes
     digest: 7badf418fba846ef073c44d544259866f98a44d9cf4755b3739f1edc12accdca
     icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
@@ -73,7 +73,7 @@ entries:
   k8s-node-label-monitor:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2020-11-17T22:13:53.765129439+01:00"
+    created: "2020-11-17T22:30:13.890858309+01:00"
     description: Kubernetes node label monitor
     digest: 262bd90517d5377785b3fb4ed8eedc05b29133ef7d7b5524ae421c48b64c8c95
     icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
@@ -93,4 +93,30 @@ entries:
     urls:
     - https://adaptant-labs.github.io/charts/adaptant/k8s-node-label-monitor-0.1.0.tgz
     version: 0.1.0
-generated: "2020-11-17T22:13:53.761661819+01:00"
+  ncs2-device-plugin:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2020-11-17T22:30:13.892691984+01:00"
+    description: Intel NCS2 device plugin for Kubernetes
+    digest: 23a32dc568f41ac3ba13acc211c7f3d64d04e6cc9cddc78911895ef40b6fbd53
+    icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
+    keywords:
+    - kubernetes
+    - kubernetes-device-plugins
+    - kubernetes-labels
+    - kubernetes-nodes
+    - ncs2
+    - myriad
+    - movidius
+    - movidius-vpu
+    maintainers:
+    - email: labs@adaptant.io
+      name: Adaptant Labs
+    name: ncs2-device-plugin
+    sources:
+    - https://github.com/adaptant-labs/ncs2-device-plugin
+    type: application
+    urls:
+    - https://adaptant-labs.github.io/charts/adaptant/ncs2-device-plugin-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-11-17T22:30:13.887556374+01:00"

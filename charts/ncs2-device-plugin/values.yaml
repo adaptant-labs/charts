@@ -1,0 +1,68 @@
+image:
+  registry: docker.io
+  repository: adaptant/ncs2-device-plugin
+  pullPolicy: IfNotPresent
+  tag: 0.1.0
+
+imagePullSecrets: []
+nameOverride: "ncs2-device-plugin"
+fullnameOverride: "ncs2-device-plugin"
+
+labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "ncs2-device-plugin"
+  namespace: kube-system
+
+volumes:
+  # pyudev depends on udev events being passed through from the host
+  - name: host-udev
+    hostPath:
+      path: "/run/udev"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+podEnv:
+  - name: NODE_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: spec.nodeName
+
+podVolumeMounts:
+  - name: host-udev
+    mountPath: "/run/udev"
+
+resources: {}
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            # k8s-auto-labeller
+            - key: accelerators/ncs2
+              operator: Exists
+        - matchExpressions:
+            # USB-attached NCS2 (using NFD discovery)
+            - key: feature.node.kubernetes.io/usb-ff_03e7_2485.present
+              operator: In
+              values:
+                - "true"
+
+# Install default RBAC roles and bindings
+rbac:
+  create: true

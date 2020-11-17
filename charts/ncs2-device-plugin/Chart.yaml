@@ -1,0 +1,21 @@
+apiVersion: v2
+name: ncs2-device-plugin
+description: Intel NCS2 device plugin for Kubernetes
+type: application
+version: 0.1.0
+appVersion: 0.1.0
+keywords:
+  - kubernetes
+  - kubernetes-device-plugins
+  - kubernetes-labels
+  - kubernetes-nodes
+  - ncs2
+  - myriad
+  - movidius
+  - movidius-vpu
+icon: https://raw.githubusercontent.com/adaptant-labs/charts/master/adaptant/icon_adaptant_R.png
+sources:
+  - https://github.com/adaptant-labs/ncs2-device-plugin
+maintainers:
+  - name: Adaptant Labs
+    email: labs@adaptant.io
